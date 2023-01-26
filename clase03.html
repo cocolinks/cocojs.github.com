@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 3</title>
+    <script>
+        let nombre = 'Alejandro'
+        let apellido = 'Arlía'
+        // Muestro las variables concatenadas.
+        console.log(nombre +' '+apellido);
+        // Otra forma de concatenar sería así:
+        console.log(nombre, apellido);
+        // Agregando un poco de texto:
+        console.log('Mi nombre es: '+nombre, apellido);
+        // Le pongo mayúsculas.
+        console.log(nombre.toLocaleUpperCase(), apellido.toUpperCase());
+        // Cuántas letras tiene el apellido?
+        console.log('Cantidad de letras que tiene el el apellido: ' + apellido.length);
+        // Pido primer letra del apellido:
+        console.log('Primer letra de mi apellido: ' + apellido.substr(0,1));
+        // Pido 2 letras del apellido:
+        console.log('Primer letra de mi apellido: ' + apellido.substr(0,2));
+        // Interpolación de texto.
+        let textoResultado = `Hola ${nombre} ${apellido} ¿cómo estás?`;
+        console.log(textoResultado);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

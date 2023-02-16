@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucle DO WHILE</title>
+</head>
+<body>
+    <ul id="idContenedor">
+
+    </ul>
+    <script>
+    // Creo una lista del 1 al 100 con un bucle for.
+    
+    function cargarNumero (numero) {
+        var varContenedor = document.getElementById('idContenedor'); 
+        var varLi = document.createElement('li');
+        var varTxt = document.createTextNode(numero+' desde la funcion');
+        varLi.appendChild(varTxt); //Creo los textos que van a estar dentro del li.
+        varContenedor.appendChild(varLi); //creo los li que van a ir dentro de los contenedores.
+    }
+
+    // Supongamos que quiero saber que número tiene una semana (hay 54 semanas al año).
+    var dia = 5;
+    // Quiero saber como se llama el día 5 de la semana.
+    if (dia == 1) {
+        document.write('Lunes');
+    } else if (dia == 2) {
+        document.write('Martes');
+    } else if (dia == 3) {
+        document.write('Miércoles');
+    } else if (dia == 4) {
+        document.write('Jueves');
+    } else if (dia == 5) {
+        document.write('Viernes');
+    } else if (dia == 6) {
+        document.write('Sábado');
+    } else if (dia == 7) {
+        document.write('Domingo');
+    }
+    // Esto que está arriba está MAL. Una forma mejor de hacerlo es:
+    switch (dia) {
+        case 1:
+        document.write('Lunes');
+        break
+        case 2:
+        document.write('Martes');
+        break
+        case 3:
+        document.write('Miércoles');
+        break
+        case 4:
+        document.write('Jueves');
+        break
+        case 5:
+        document.write('Viernes');
+        break
+        case 6:
+        document.write('Sábado');
+        break
+        case 7:
+        document.write('Domingo');
+        break
+        default:
+        document.write('No es ningún día de la semana');
+    }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtrando ARRAYS</title>
+</head>
+<body>
+    <ul id="idContenedor">
+
+    </ul>
+    <script>
+    // Si una variable es un cajón, un array es una cajonera.
+    // Creo un array.
+    var dias = new Array('Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo');
+    // Si tengo una variable dia, con el número de un día... le puedo pedir al Array que me muestre el día que está cargado en la variable dia.
+    var dia = 0;
+    // Supongamos que quiero que me muestre todos los días.
+    //dias.length se usa para que me muestre la cantidad de dias que hay en el array dias. length = cantidad.
+    
+    // Ahora creo una variable diasLaborales, que se nutre de la var dias, y filtra los dias Sábado y Domingo.
+    var diasLaborales = dias.filter(function (unDia){
+        return unDia != 'Sábado' &&  unDia != 'Domingo';
+    })
+    
+    // Con un for, llamo a ver los días de diasLaborales.
+    for (var dato=0 ; dato < diasLaborales.length; dato++) {
+        document.write(diasLaborales[dato]+"<br>");
+    }
+
+    </script>
+</body>
+</html>

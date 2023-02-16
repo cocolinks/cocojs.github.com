@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find y FindIndex en Arrays.</title>
+</head>
+<body>
+    <ul id="idContenedor">
+
+    </ul>
+    <script>
+    var numeros = new Array(3,5,6,4,8,9,1);
+    // Quiero ver si el arreglo numeros contiene un determinado número.
+
+    var loTiene = numeros.find(function(item){
+        return item === 5;
+    })
+
+    // Find index es similar a find, pero nos devuelve la posición del índice (index).
+    var tieneElIndice = numeros.findIndex(function(item){
+        return item === 5; // El resultado me da que el índice es el 1 (recordar que arranca a contar desde el 0).
+    })
+    document.write(loTiene + " está en la lista de números.<br>");
+    document.write("La posición o índice del número es  " + tieneElIndice + "<br>");
+
+    // Puedo borrar el último valor del arreglo con la propiedad "pop".
+    numeros.pop();
+    
+    // Puedo agregar el último valor del arreglo con la propiedad "push".
+    numeros.push(714);
+
+    // Cómo hacer que un array tenga un solo valor.
+    // Con join, transformamos el array completo en una única cadena.
+
+    var valorUnico = numeros.join();
+    document.write(valorUnico + "<br>");
+
+    // Puedo cambiar el separador (que por defecto son comas) haciendo lo siguiente.
+    
+    var valorUnico = numeros.join(" Valor: ");
+    document.write(valorUnico + "<br>");
+    
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterclass: Al DOM Pirulero.</title>
+</head>
+<body>
+    <h1 id="titulo" class="li-hijos"></h1>
+    <ul id="listado">
+        <li class="li-hijos">Hijo 1</li>
+        <li class="li-hijos">Hijo 2</li>
+        <li class="li-hijos">Hijo 3</li>
+    </ul>
+    
+    <script>
+        // LLamar a elementos.
+        let llamarPorID = document.getElementById('listado');
+        let llamarPorTag = document.getElementsByTagName('li')
+        let llamarPorClass = document.getElementsByClassName('li-hijos');
+        let llamarPorQuerySelector = document.querySelector('ul li:first-child');
+        let llamarPorQuerySelectorAll = document.querySelectorAll('.li-hijos'); // Si llamo a una Class, tengo que agregar el . como si fuera CSS.
+        
+        // Crear elementos y su contenido, para mostrarlo en el documento.
+
+        // PASO 1: 
+        // Creo nodo h1 y el texto que irá dentro.
+        let creoH1 = document.createElement('h1');
+        let creoTextoDeH1 = document.createTextNode('Hola, soy un título!');
+        // Creo un nodo li en el documento y 2 textos que irían dentro.
+        let creoLi = document.createElement('li');
+        let creoLi2 = document.createElement('li');
+        let creoTextoDeLi = document.createTextNode("Soy el texto creado...");
+        let creoTextoDeLi2 = document.createTextNode('Soy un nuevo texto creado...');
+
+        // PASO 2: 
+        // Con appendChild pongo el texto creado dentro del nodo creado.
+        creoH1.appendChild(creoTextoDeH1);
+        creoLi.appendChild(creoTextoDeLi); 
+        creoLi2.appendChild(creoTextoDeLi2); 
+        
+        // PASO 3: 
+        // Ahora hago que aparezca el texto en la pagina (en el document) ubicado en el TAG creado con ID específico.
+        let llamarIdTitulo = document.getElementById('titulo')
+        let llamarIdListado = document.getElementById('listado')
+        llamarIdTitulo.appendChild(creoTextoDeH1);
+        // Agregar varios contenidos a la vez en el document con append.
+        llamarIdListado.append(creoLi, creoLi2);
+        
+        // Si quiero hacer un nodo que se agregue primero que todos utilizo insertBefore, para poder utilizarlo, previamente tengo que crear una referencia de donde va a ir (o sea "el before de quien?").
+        let referencia = llamarPorQuerySelector;
+        let primerNodo = document.createElement('li');
+        let textoPrimerNodo = document.createTextNode('¡Soy el primer nodo!');
+        primerNodo.appendChild(textoPrimerNodo);
+        let llamarPrimerNodo = document.getElementById('listado');
+        llamarPrimerNodo.insertBefore(primerNodo, referencia);
+
+        // InsertAdjacentElement
+        let creoLiAdjacent = document.createElement('li');
+        let creoTextoAdjacent = document.createTextNode('Soy el texto de Adjacent.');
+        creoLiAdjacent.appendChild(creoTextoAdjacent);
+        // El primer parámetro define donde se va a crear el elemento.
+        /* llamarIdListado.insertAdjacentElement('beforeBegin', creoLiAdjacent);
+        llamarIdListado.insertAdjacentElement('afterBegin', creoLiAdjacent);
+        llamarIdListado.insertAdjacentElement('beforeEnd', creoLiAdjacent);*/
+        llamarIdListado.insertAdjacentElement('afterEnd', creoLiAdjacent);
+
+        // Otras formas de seleccionar elementos.
+        llamarIdListado.innerHTML;
+
+        // Eliminar hijos con removeChild
+        let hijo = document.querySelector('li:last-child');
+        llamarIdListado.removeChild(hijo);
+
+        let eliminar = document.querySelector('li:first-child');
+        eliminar.remove();
+    </script>
+</body>
+</html>

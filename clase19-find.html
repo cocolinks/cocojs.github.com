@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find y FindIndex en Arrays.</title>
+</head>
+<body>
+    <ul id="idContenedor">
+
+    </ul>
+    <script>
+    var numeros = new Array(3,5,6,4,8,9,1);
+    // Quiero ver si el arreglo numeros contiene un determinado número.
+
+    var loTiene = numeros.find(function(item){
+        return item === 5;
+    })
+
+    // Find index es similar a find, pero nos devuelve la posición del índice (index).
+    var tieneElIndice = numeros.findIndex(function(item){
+        return item === 5; // El resultado me da que el índice es el 1 (recordar que arranca a contar desde el 0).
+    })
+    document.write(loTiene + " está en la lista de números.<br>");
+    document.write("La posición o índice del número es  " + tieneElIndice);
+
+
+    </script>
+</body>
+</html>

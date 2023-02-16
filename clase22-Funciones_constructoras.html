@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones Constructoras</title>
+</head>
+<body>
+    
+<script>
+    // Si yo quiero un objeto que pueda dejar armado como una función, para luego completarlo con diferentes datos, existe algo que se llama "Funciones constructoras"
+    // Los nombres de las funciones constructoras comienzan con mayúsculas.
+    function Alumno (nombre, edad, email) { 
+        this.nombre = nombre;
+        this.edad = edad;
+        this.email = email;
+        this.saludar = function() {
+            document.write(`Hola, soy ${nombre}! <br>`)
+        }
+    }
+
+    // Quiero usar la funcion alumno, creo una instancia para ese objeto, que va a ser mi alumno Marcos.
+    let marcos = new Alumno ('Marcos Rimoldi', 32, 'marcosrimoldi@gmail.com');
+    let martin = new Alumno ('Martín Attie', 38, 'martinatiie@gmail.com');
+
+    martin.saludar();
+    document.write(martin.email+"<br>")
+</script>
+</body>
+</html>

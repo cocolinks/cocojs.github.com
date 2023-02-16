@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos Accesores.</title>
+</head>
+<body>
+    
+<script>
+    // Abstracción: independizar los conjuntos de datos y trabajarlos mas prolijamente.
+    // Hay métodos de encapsulación, que se trata de encerrar las propiedads de una clase y que únicamente se pueda acceder por métodos.
+    // Esto se hace para que no puedan acceder a modificar los valores o propiedades de nuestras clases en cualquier momento, sino que haya que hacerlo con métodos.
+
+    // Se hace con los métodos get y set.
+    // Con GET es un metodo accesor que trae información de una propiedad de nuestra clase.
+    // Con SET es un metodo accesor que setea nueva información de una propiedad de nuestra clase.
+
+    // Por convención, a las variables se les asigna un _ antes.
+    class Humano {
+        constructor (nombre, apellido, edad, email) {
+            this._nombre = nombre;
+            this._apellido = apellido;
+            this._edad = edad;
+            this._email = email;
+        }
+        saludar () {
+            document.write(`¡Hola! Soy ${this._nombre} ${this._apellido}. Esto es un saludo dentro de una clase...<br>`)
+        }
+        // La manera correcta para leer una propiedad de una Class es haciendo un get.
+        // Lo que hace es obtener el valor de la clase y devolverlo con un return.
+        get nombre () {
+            return this._nombre;
+        }
+        // Si quiero modificar el nombre de Marcos uso SET
+        set nombre (nombre) {
+            this._nombre = nombre;
+        }
+    }
+
+    let marcos = new Humano ('Marcos', 'Rimoldi', 32, 'marcosrimoldi@gmail.com');
+
+    // Seteo un nombre nuevo ahora que tengo un set declarado.
+    marcos.nombre = 'Marquitos';
+    marcos.saludar();
+    console.log(marcos.nombre);
+</script>
+</body>
+</html>

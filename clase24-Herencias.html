@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herencias</title>
+</head>
+<body>
+    
+<script>
+    // Supongamos que yo ahora además de alumnos, quiero también tener profesores, en donde los profesores puedan por ejemplo corregir y los alumnos comprar cursos.
+    // Para esto creo una clase padre (la llamaremos Humano) y luego de ella se desprenderan las herencias que serían Profesor y Alumno, donde cada una tendrán elementos de Humano, y otros propios de cada una de ellas.
+
+    class Humano {
+        constructor (nombre, apellido, edad, email) {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.edad = edad;
+            this.email = email;
+        }
+        saludar () {
+            document.write(`¡Hola! Soy ${this.nombre} ${this.apellido}. Esto es un saludo dentro de una clase...<br>`)
+        }
+    }
+
+    class Alumno extends Humano {
+        comprar () {
+            document.write(`El alumno ${this.nombre} ${this.apellido} compró un curso`)
+        }
+    }
+
+    class Profesor extends Humano {
+        calificar () {
+            document.write(`El profesor ${this.nombre} ${this.apellido} calificó a un alumno`)
+        }
+    }
+    // Quiero usar la clase alumno, creo una instancia para esa clase, que va a ser mi alumno Marcos nuevamente.
+    let marcos = new Alumno ('Marcos', 'Rimoldi', 32, 'marcosrimoldi@gmail.com');
+    let martin = new Alumno ('Martín', 'Attie', 38, 'martinattie@gmail.com');    
+    let jony = new Profesor ('Jonatan', 'Ariste', 39, 'codearock@gmail.com');
+
+    document.write(jony.email+"<br>")
+    jony.comprar();
+</script>
+</body>
+</html>

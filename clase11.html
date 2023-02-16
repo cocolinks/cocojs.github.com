@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Magia</title>
+    <!-- En la clase 11, sumamos CSS a nuestra web hecha con JS -->
+    <style>
+        .verde {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="saludos">
+    </div>
+    <input type="text" id="entrada"><br><br>
+    <button id="boton">Saludar</button>
+    <p id="saludados"></p>
+        
+    <script>
+        //Primero declaro variables
+        let titulo = document.getElementById('titulo');
+        let form = document.getElementById('entrada');
+        let boton = document.getElementById('boton');
+        let contenedor = document.getElementById('saludos');
+        //Voy a agregar una variable para contar cuantos saludos voy haciendo en la web.
+        let cantSaludos = 0;
+        let saludados = document.getElementById('saludados');
+
+        //Funciones anónimas. Hacer algo similar pero sin necesidar de sumar una función (pincharon, en le caso anterior).
+        boton.addEventListener('click',function(){
+            let nombrePersona = form.value;
+            if (nombrePersona != '') { //Agrego este If, para qué cuando no haya un nombre en el form, no salude, ni sume cantidad a cantSaludos.
+                cantSaludos++
+                let saludoBienvenida = `Hola ${nombrePersona}, sos la persona #${cantSaludos} en ingresar a la web armada con JS!`
+                // En una variable CREO un elemento html que no existía.
+                var sal = document.createElement('h3');
+                var txt = document.createTextNode(saludoBienvenida);
+                sal.appendChild(txt);
+                contenedor.appendChild(sal);
+                if (cantSaludos === 1) {
+                    saludados.innerHTML = `Saludamos a ${cantSaludos} persona`;    
+                } else { 
+                    saludados.innerHTML = `Saludamos a ${cantSaludos} personas`;
+                }
+            }
+        })
+        //Ahora quiero hacer que cada vez que clickeo en un saludo a alguien, se agregue un color al texto. Intentando de usar lo que ya creamos, sin agregar más código innecesario.
+        //Hago que se escuche el click y cree un evento.
+        document.addEventListener('click', function(mouseEvent){
+            console.log(mouseEvent);
+            if (mouseEvent.target.localName == 'h3') {
+                //alert ('Soy un h3');
+                mouseEvent.target.classList.add ('verde');
+            }
+            
+        })
+
+    </script>
+</body>
+</html>

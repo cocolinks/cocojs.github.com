@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Magia</title>
+    <!-- En la clase 11, sumamos CSS a nuestra web hecha con JS -->
+    <style>
+        .verde {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="asistencias">
+    </div>
+    <input type="text" id="entrada"><br><br>
+    <button id="boton">Invitar</button>
+    <p id="invitados"></p>
+    <p id="asistentes"></p>
+        
+    <script>
+        //Primero declaro variables
+        let titulo = document.getElementById('titulo');
+        let form = document.getElementById('entrada');
+        let boton = document.getElementById('boton');
+        let contenedor = document.getElementById('asistencias');
+        //Voy a agregar una variable para contar cuantas asisntencias voy contando en la web.
+        let cantInvitados = 0;
+        let invitados = document.getElementById('invitados');
+        let cantAsistentes = 0;
+        let asistentes = document.getElementById('asistentes');
+
+        //Funciones anónimas. Hacer algo similar pero sin necesidar de sumar una función (pincharon, en le caso anterior).
+        boton.addEventListener('click',function(){
+            let nombrePersona = form.value;
+            if (nombrePersona != '') { //Agrego este If, para qué cuando no haya un nombre en el form, no salude, ni sume cantidad a cantAsistentes.
+                cantInvitados++
+                let saludoInvitado = `Invitado: ${nombrePersona}`
+                // En una variable CREO un elemento html que no existía.
+                var sal = document.createElement('h3');
+                var txt = document.createTextNode(saludoInvitado);
+                sal.appendChild(txt);
+                contenedor.appendChild(sal);
+                if (cantInvitados == 1) {
+                    invitados.innerHTML = `Invitamos a ${cantInvitados} persona`;    
+                } else { 
+                    invitados.innerHTML = `Invitamos a ${cantInvitados} personas`;
+                }
+                form.value = '';
+            }
+        })
+        
+        //Ahora quiero hacer que cada vez que clickeo en el nombre de alguien, se agregue un texto que diga que vino.
+        document.addEventListener('click', function(unClickDelMouse){
+            console.log(unClickDelMouse);
+            if (unClickDelMouse.target.localName == 'h3') {
+                cantAsistentes++
+                unClickDelMouse.target.innerHTML = unClickDelMouse.target.innerHTML + `... ya vino!`;
+                unClickDelMouse.target.classList.add ('verde');
+                if (cantAsistentes == 1) {
+                    asistentes.innerHTML = `Vino ${cantAsistentes} persona`;    
+                } else { 
+                    asistentes.innerHTML = `Vinieron ${cantAsistentes} personas`;
+                }
+            }
+            
+        })
+
+    </script>
+</body>
+</html>

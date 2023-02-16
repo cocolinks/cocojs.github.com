@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos Estáticos.</title>
+</head>
+<body>
+    
+<script>
+    // Una instancia es por ejemplo cuando declaro la variable marcos y dentro le digo que es un new Humano, y le pongo el nombre, apellido, etc. Eso es una instancia de la clase Humano.
+    // Si yo no tengo una instancia declarada, no voy a poder llamar por ejemplo a la función saludar.
+    // Acá vamos a ver que puedo tener un "método estático", que no necesite de una instancia de una clase para se llamado.
+
+    class Humano {
+        constructor (nombre, apellido, edad, email) {
+            this._nombre = nombre;
+            this._apellido = apellido;
+            this._edad = edad;
+            this._email = email;
+        }
+        saludar () {
+            document.write(`¡Hola! Soy ${this._nombre} ${this._apellido}. Esto es un saludo dentro de una clase...<br>`)
+        }
+        get nombre () {
+            return this._nombre;
+        }
+        set nombre (nombre) {
+            this._nombre = nombre;
+        }
+        // Si yo quisiera llamar a la función Humano.saludar(); me da error diciendo que saludar no es una función. Esto es porque no es un método estático. Voy entonces a declarar a continuación un método estático.
+        static saludarEstatico () {
+            document.write(`¡Hola! Esto es un saludo con un método estático, sin declarar nombres...<br>`)
+        }
+    }
+
+    Humano.saludarEstatico();
+
+    // Una forma de usar métodos estáticos sería para hacer un factory. Es una clase que hace instancia de objetos desde una misma clase.
+    // Tomamos el ejemplo de antes y cambiamos Humano por Persona para no pisarnos, para ver un ejemplo.
+
+    class Persona {
+        constructor (nombre, apellido, edad, email) {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.edad = edad;
+            this.email = email;
+        }
+        saludar () {
+            document.write(`¡Hola! Soy ${this.nombre} ${this.apellido}. Esto es un saludo dentro de una clase...<br>`)
+        }
+    }
+    class Alumno extends Persona {
+        comprar () {
+            document.write(`El alumno ${this.nombre} ${this.apellido} compró un curso<br>`)
+        }
+    }
+
+    class Profesor extends Persona {
+        calificar () {
+            document.write(`El profesor ${this.nombre} ${this.apellido} calificó a un alumno<br>`)
+        }
+    }
+
+    class FactoryCrearPersona {
+        static crearPersona (nombre, apellido, edad, email, profesion) {
+            if (profesion == 'Profesor') {
+                return new Profesor (nombre, apellido, edad, email);
+            } else if (profesion == 'Alumno') {
+                return new Alumno (nombre, apellido, edad, email);
+            } else {
+                document.write (`${nombre} no es profesor ni alumno.<br>`)
+            }
+        }
+    }
+    
+
+    let marcos = FactoryCrearPersona.crearPersona ('Marcos', 'Rimoldi', 32, 'marcosrimoldi@gmail.com', 'Profesor');
+    let martin = FactoryCrearPersona.crearPersona ('Martín', 'Attie', 38, 'martinattie@gmail.com', 'Alumno');
+    let alfredo = FactoryCrearPersona.crearPersona ('Alfredo', 'Perez', 44, 'alfreditoperez@gmail.com', 'Albañil');
+
+
+    marcos.saludar();
+    marcos.calificar();
+    martin.saludar();
+    martin.comprar();
+</script>
+</body>
+</html>

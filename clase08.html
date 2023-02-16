@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Argumentos a funciones</title>
+</head>
+<body>
+    <script>
+        // Nombres de perritos
+        let toby = 7;
+        let mart = 4;
+        let bartolo = 2
+
+        function calcularEdad(edad, nombre) {  // Puedo pasar un parámetro o más...
+            calculo = edad * 7;
+            console.log(`La edad de ${nombre} es: ${calculo}`);
+        }
+        calcularEdad(toby, 'Toby');
+
+        // Funciones con return.
+        function calcularEdadR (edad) {
+            calculo = edad * 7;
+            return calculo; // El return mata la función, es decir, todo lo que venga desp no se va a ejecutar.
+        }
+        console.log(`La edad de Bartolo es: ${calcularEdadR(bartolo)}`);
+    </script>
+</body>
+</html>

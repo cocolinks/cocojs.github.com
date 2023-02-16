@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Magia</title>
+</head>
+<body>
+    <h1 id="titulo">Quizás tengas que hacer una acción...</h1>
+    <input type="text" id="entrada"><br><br>
+    <button id="btn">Clickeá acá!</button>
+    
+    <script>
+        let titulo = document.getElementById('titulo');
+        let form = document.getElementById('entrada');
+        let boton = document.getElementById('btn');
+        console.log(titulo, form, boton);
+
+        //Cómo ver los contenidos de html.
+        console.log(titulo.innerHTML);
+        //Cómo cambiar los contenidos de html.
+        /* 
+        titulo.innerHTML = 'Nuevo título desde JS.'
+        */
+
+        //Event Listener. Es una función, con parámetros.
+        /*
+        boton.addEventListener('click', pincharon); //Le pongo que ante el evento "Click", llame a la función "pincharon". Para que la llame, tengo que crearla.
+        function pincharon(){
+            alert('Tocaste un botón!')
+        }
+        */
+
+        //Funciones anónimas. Hacer algo similar pero sin necesidar de sumar una función (pincharon, en le caso anterior).
+        boton.addEventListener('click',function(){
+            let entradaForm = form.value;
+            titulo.innerHTML = `Bien ahí ${entradaForm}!`;
+        })
+
+    </script>
+</body>
+</html>

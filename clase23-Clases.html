@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases</title>
+</head>
+<body>
+    
+<script>
+
+    // Class Expresion (no vamos a utilizarlo, pero existe...)
+/* 
+    let Alumnito = class TipoDeClase{
+
+    }
+ */    
+    // Class declaration. Este es el tipo de clase que vamos a utilizar.
+    // Las clases son un conjunto de funciones.
+    class Alumno {
+        // Dentro de la clase tenemos que tener un metodo constructor (se llama justamente constructor), dentro del constructor vamos a guardar los métodos, como hacíamos en la función constructora..
+        constructor (nombre, apellido, edad, email) {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.edad = edad;
+            this.email = email;
+        }
+        // Dentro de una clase, para declarar una función con hace falta usar la palabra reservada function.
+        saludar () {
+            document.write(`¡Hola! Soy ${this.nombre} ${this.apellido}. Esto es un saludo dentro de una clase...<br>`)
+        }
+    }
+
+    // Quiero usar la clase alumno, creo una instancia para esa clase, que va a ser mi alumno Marcos nuevamente.
+    let marcos = new Alumno ('Marcos', 'Rimoldi', 32, 'marcosrimoldi@gmail.com');
+    let martin = new Alumno ('Martín', 'Attie', 38, 'martinatiie@gmail.com');
+
+    martin.saludar();
+    document.write(martin.email+"<br>")
+</script>
+</body>
+</html>

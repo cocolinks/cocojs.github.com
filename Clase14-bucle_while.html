@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucle WHILE</title>
+</head>
+<body>
+    <ul id="idContenedor">
+
+    </ul>
+    <script>
+    // Creo una lista del 1 al 100 con un bucle for.
+    
+    function cargarNumero (numero) {
+        var varContenedor = document.getElementById('idContenedor'); 
+        var varLi = document.createElement('li');
+        var varTxt = document.createTextNode(numero+' desde la funcion');
+        varLi.appendChild(varTxt); //Creo los textos que van a estar dentro del li.
+        varContenedor.appendChild(varLi); //creo los li que van a ir dentro de los contenedores.
+    }
+
+    num = 0;
+    while (num < 7) {
+        cargarNumero(num+1);
+        num++;
+    }
+    
+    </script>
+</body>
+</html>

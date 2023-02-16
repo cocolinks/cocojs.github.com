@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARRAYS</title>
+</head>
+<body>
+    <ul id="idContenedor">
+
+    </ul>
+    <script>
+    // Si una variable es un cajón, un array es una cajonera.
+    // Creo un array.
+    var dias = new Array('Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo');
+    document.write(dias[3]); // Se empieza contando de 0, por lo tanto, 0 es Lunes.
+
+    // Si tengo una variable dia, con el número de un día... le puedo pedir al Array que me muestre el día que está cargado en la variable dia.
+    var dia = 0
+    document.write(dias[dia]);
+    
+    // Supongamos que quiero que me muestre todos los días.
+    //dias.length se usa para que me muestre la cantidad de dias que hay en el array dias. length = cantidad.
+    for (var dato=0 ; dato < dias.length; dato++) {
+        document.write(dias[dato]+"<br>");
+    }
+
+    </script>
+</body>
+</html>

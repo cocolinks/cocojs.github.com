@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores de comparación.</title>
+</head>
+<body>
+    <script>
+        /*
+        let a = "34";
+        let b = 34;
+
+        console.log(a == b);
+        console.log(a != b);
+        console.log(a === b);
+        console.log(a !== b);
+        */
+        
+        // Operadores lógicos.
+        let user = 10;
+        let pass = 22;
+
+        console.log(user == pass);
+
+        // Operador AND
+        console.log(user == 10 && pass == 23);
+        console.log(user == 10 && pass == 22);
+        // Operador OR
+        console.log(user == 11 || pass == 23); // Ambos están mal
+        console.log(user == 10 || pass == 23); // Uno bien y uno mal
+        console.log(user == 10 || pass == 22); // Ambos mal
+        // Operador NOT. Se usa para ver lo inverso.
+
+
+        // Operadores < y >.
+        let scorePlayer1 = Math.floor(Math.random() * (40 - 1)) + 1;
+        let scorePlayer2 = Math.floor(Math.random() * (40 - 1)) + 1;
+        let scorePlayer3 = Math.floor(Math.random() * (40 - 1)) + 1;
+        let scoreComodin = 35;
+
+        if (scorePlayer1 > scorePlayer2) {
+            console.log(`¡Player 1 es el ganador!`);
+        }
+
+        if (scorePlayer1 < scorePlayer2) {
+            console.log(`¡Player 1 es el ganador!`);
+        } else {
+            console.log(`¡Player 1 perdió! :(`);
+        }
+
+        if (scorePlayer1 > scorePlayer2 && scorePlayer1 > scorePlayer3) {
+            console.log(`El Player 1 ganó!`);
+        } else {
+            console.log(`El Player 1 perdió!`)
+        }
+
+        // Elseif
+
+        if (scorePlayer1 > scorePlayer2 && scorePlayer1 > scorePlayer3 || scorePlayer1 == scoreComodin) {
+            console.log('Player 1 les ganó a todos!');
+        } else if (scorePlayer2 > scorePlayer1 && scorePlayer2 > scorePlayer3 || scorePlayer2 == scoreComodin) {
+            console.log('Player 2 les ganó a todos!');
+        } else if (scorePlayer3 > scorePlayer1 && scorePlayer3 > scorePlayer2 || scorePlayer3 == scoreComodin) {
+            console.log('Player 3 les ganó a todos!');
+        } else {
+            console.log('No hay ganadores! :(');
+        }
+        console.log(`Player 1: ${scorePlayer1}`);
+        console.log(`Player 2: ${scorePlayer2}`);
+        console.log(`Player 3: ${scorePlayer3}`);
+    </script>
+</body>
+</html>
